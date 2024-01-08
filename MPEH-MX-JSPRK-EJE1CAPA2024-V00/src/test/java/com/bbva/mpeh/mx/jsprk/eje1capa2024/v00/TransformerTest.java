@@ -46,9 +46,9 @@ class TransformerTest extends LRBASparkTest {
                          DataTypes.createStructField("Height", DataTypes.StringType, false),
                          DataTypes.createStructField("Weight", DataTypes.StringType, false),
                });
-        Row firstRowBioStats = RowFactory.create("123-45-6789","Alex","M","41","74","170");
-        Row secondRowBioStats = RowFactory.create("123-12-1234","Bert","M","42","68","166");
-        Row thirdRowBioStats = RowFactory.create("567-89-0123","Carl","M","32","70","155");
+        Row firstRowBioStats = RowFactory.create("123-45-6789","Alex","M","41","74","170 min");
+        Row secondRowBioStats = RowFactory.create("123-12-1234","Bert","M","42","68","166 mins");
+        Row thirdRowBioStats = RowFactory.create("567-89-0123","Carl","M","32","70","155 min");
 
         final List<Row> listRowsBioStats = Arrays.asList(firstRowBioStats, secondRowBioStats, thirdRowBioStats);
 
@@ -77,7 +77,7 @@ class TransformerTest extends LRBASparkTest {
         DatasetUtils<Row> datasetUtilsGrades = new DatasetUtils<>();
         Dataset<Row> gradesDf = datasetUtilsGrades.createDataFrame(listRowsGrades, schemaGrades);
         final Map<String, Dataset<Row>> dataset = this.transformer.transform(Map.of("bioStats", bioStatsDf, "grades", gradesDf));
-        dataset.forEach((k, v) -> System.out.println(k + " - " + v));
+            dataset.forEach((k, v) -> System.out.println(k + " - " + v));
         assertNotNull(dataset);
         assertEquals(2, dataset.size());
 
@@ -98,9 +98,11 @@ class TransformerTest extends LRBASparkTest {
         assertEquals("M", temporaryOutput.get(0).get(11));
         assertEquals("41", temporaryOutput.get(0).get(12));
         assertEquals("74", temporaryOutput.get(0).get(13));
-        assertEquals("170", temporaryOutput.get(0).get(14));
+        assertEquals("170 min", temporaryOutput.get(0).get(14));
 
         Dataset<Row> finalOutputDs = dataset.get("finalOutput");
+        finalOutputDs.show();
+
         final List<Row> finalOutput = finalOutputDs.collectAsList();
         assertEquals(3, finalOutput.size());
         assertEquals("Alfalfa", finalOutput.get(0).get(0));
@@ -116,7 +118,7 @@ class TransformerTest extends LRBASparkTest {
         assertEquals("M", finalOutput.get(0).get(10));
         assertEquals("41", finalOutput.get(0).get(11));
         assertEquals("74", finalOutput.get(0).get(12));
-        assertEquals("170", finalOutput.get(0).get(13));
+        assertEquals("170 min", finalOutput.get(0).get(13));
 
     }
 

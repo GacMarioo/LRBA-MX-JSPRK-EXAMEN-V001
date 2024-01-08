@@ -1,4 +1,4 @@
 SerialNumber,Name,Sex,Age,Height,Weight
-123-45-6789,Alex,M,41,74,170
-123-12-1234,Bert,M,42,68,166
-567-89-0123,Carl,M,32,70,155
+123-45-6789,Alex,M,41,74,170 min
+123-12-1234,Bert,M,42,68,166 min
+567-89-0123,Carl,M,32,70,155 min
