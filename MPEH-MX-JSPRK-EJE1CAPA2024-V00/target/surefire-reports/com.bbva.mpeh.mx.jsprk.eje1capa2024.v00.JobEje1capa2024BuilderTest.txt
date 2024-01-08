@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.bbva.mpeh.mx.jsprk.eje1capa2024.v00.JobEje1capa2024BuilderTest
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.28 s - in com.bbva.mpeh.mx.jsprk.eje1capa2024.v00.JobEje1capa2024BuilderTest

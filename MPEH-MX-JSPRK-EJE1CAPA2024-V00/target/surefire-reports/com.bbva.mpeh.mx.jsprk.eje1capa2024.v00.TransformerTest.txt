@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.bbva.mpeh.mx.jsprk.eje1capa2024.v00.TransformerTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 17.986 s - in com.bbva.mpeh.mx.jsprk.eje1capa2024.v00.TransformerTest
